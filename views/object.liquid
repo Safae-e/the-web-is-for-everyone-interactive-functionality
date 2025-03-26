@@ -1,0 +1,26 @@
+{% render 'partials/head.liquid' %}
+{% render 'partials/header.liquid' %}
+
+<section class="art-section">
+
+<a class="back-button" href="/">BACK </a>
+{% if object.image %}
+    <img class="object-id" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="images of object in qatar " width="300px">        
+
+{% else %}
+    <p>No image availible</p>
+{% endif %}
+</section>
+
+<h1>{{ object.title }}</h1>
+
+{% if object.summary %}
+<h2>Summary:<br>{{ object.summary }}</h2>
+
+{% else  %}
+    {% comment %} <p>no summary availible</p> {% endcomment %}
+{% endif %}    
+<p>Object nummer:<br>{{ object.objectNumber }}</p>
+<p>Display date:<br>{{ object.displayDate }}</p>
+<p>Site:<br>{{ object.site }}</p>
+{% render 'partials/foot.liquid' %}

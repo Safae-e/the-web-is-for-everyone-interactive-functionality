@@ -1,0 +1,151 @@
+/* MARK: header */
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    /* position: fixed; */
+    background-color: var(--background-color);
+}
+
+.qatar-logo {
+    justify-content: flex-start;
+}
+
+.nav-bar {
+    list-style-type:none;
+    display:flex;
+    justify-content: flex-end;
+    column-gap: 1em;
+    /* align-items: inherit; */
+}
+
+.nav-links {
+    display: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    /* tablet versie */
+    @media (min-width:960px) {
+        display:inline-flex;
+        align-items: center;
+    }
+}
+
+.ticket-link {
+    display: none;
+    &:hover {
+        background-color: black;
+    }
+
+    @media (min-width:960px) {
+        padding: 9px 16px 7px;
+        background: var(--nav-highlight);
+        border: 1px solid black;
+        display:inline-flex;
+        align-items: center;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: var(--font-color);
+    font-family: var(--font-pro-light);
+}
+
+.AR-nav {
+    font-family: var(--font-arabic-bold);
+}
+
+/* MARK: Art gallery */
+.card-container {
+    list-style-type: none;
+    column-count: 2; /* Aantal kolommen */
+    gap: 1.5em; 
+        @media (min-width: 480px) {
+            column-count: 3;   
+        }
+        @media (min-width: 720px) {
+            column-count: 4;   
+        }
+
+}
+
+.image {
+    width: 100%;
+    height: auto; 
+    border-radius: 7px;
+    display: block; /* Verwijdert inline-afstanden */
+    padding-top: 1.5em;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.menu-button {
+    font-family: sans-serif;
+    padding: 0px;
+    gap: 8px;
+    border: none;
+    background-color: var(--background-color);
+}
+
+.like-button {
+    background-color: rgb(16, 15, 15);
+    border: none;
+}
+
+.like-button::before {
+    content: "♡";
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.like-button:hover::before {
+    color: rgb(214, 75, 57);
+}
+
+/* MARK: Object pagina */
+
+.art-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--detail-background-color);
+    max-width: 100vw;
+    position: relative;
+}
+
+.back-button {
+    background-color: rgba(0, 0, 0, 0.35);
+    color: white;
+    max-width: fit-content;
+    padding: 16px 22px 12px 14px;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+
+.object-id {
+    width: 600px; /* Breedte instellen */
+    height: 45vw;
+    object-fit: cover;  
+   
+}
+
+form {
+    position: fixed;
+    bottom: 1em;
+    right: 50%;
+    cursor: pointer;
+}
+
+input {
+    width: 250%;
+    border-radius: 4px ;
+    padding: .5em;
+}

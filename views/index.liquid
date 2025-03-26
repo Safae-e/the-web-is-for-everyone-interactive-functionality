@@ -1,0 +1,64 @@
+{% render 'partials/head.liquid' %}
+
+<header>
+    <nav class="navigation">
+        <div class="qatar-logo" >          
+         <img src="assets/Qatar-museums-Logo (2).png" alt="Qatar museums logo">
+        </div>
+    <ul class="nav-bar">
+       
+        <li class="nav-links">
+            <a href=""><span class="AR-nav">قــصـص</span>
+                <br>STORIES</a> 
+        </li>        
+        <li class="nav-links">
+            <a href=""><span class="AR-nav">ماهوالجديد</span><br>
+               {{ "what's on" |  upcase }}</a>
+        </li>        
+        <li class="nav-links">
+            <a href="" class=""><span class="AR-nav">الـمـجـمـوعــة</span><br>
+            {{ "collection" |  upcase }}</a>
+        </li>        
+        <li class="nav-links">
+            <a href=""><span class="AR-nav">زيـارة</span><br>
+            {{ "visit" |  upcase }}</a>
+        </li>    
+        
+        <li class="ticket-link">
+            <a href=""> {{ "tickets" |  upcase }}</a>
+        </li>
+
+        <li class="nav-links">
+            <a href=""> <img src="assets/member-icoon.svg">
+                 {{ "members" |  upcase }}</a>
+        </li>
+
+        <li class="nav-links">
+            <a href=""> <img src="assets/locatie-icoon.svg">
+                {{  "Venues" |  upcase}}</a>
+        </li>
+
+        <button class="menu-button"> <img src="assets/menu-icoon.svg">
+            {{ "menu" |  upcase }}</button>
+    </ul>
+    </nav>
+</header>
+
+     <ul class="card-container">  
+        {% for artwork in artworks %}
+            <li class="">
+                <a href="/object/{{ artwork.id }}">
+                <img class="image" src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="">
+                </a>
+
+                <button class="like-button"></button>
+            </li>
+          {% endfor %}
+      </ul> 
+
+      <form>
+        <label>
+            <input type="search" placeholder="SEARCH THE COLLECTION">
+        </label>
+      </form>
+          {% render 'partials/foot.liquid' %}

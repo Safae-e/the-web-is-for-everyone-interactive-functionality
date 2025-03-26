@@ -23,6 +23,32 @@ app.engine('liquid', engine.express());
 // Let op: de browser kan deze bestanden niet rechtstreeks laden (zoals voorheen met HTML bestanden)
 app.set('views', './views')
 
+// Maak een GET route voor de index (meestal doe je dit in de root, als /)
+app.get('/', async function (request, response) {
+  // Render index.liquid uit de Views map
+  // Geef hier eventueel data aan mee
+  const apiResponse = await fetch('https://fdnd-agency.directus.app/items/fabrique_art_objects');
+  const apiResponseJSON = await apiResponse.json();
+
+  response.render('index.liquid', { artworks: apiResponseJSON.data});
+})
+
+// GET route object.liquid
+app.get('/object/:id/', async function (request, response) {
+  const artworkId = request.params.id;
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate`
+  );
+  const apiResponseJSON = await apiResponse.json();
+  console.log(apiResponse);  
+
+  response.render('object.liquid', {object: apiResponseJSON.data});
+})
+
+
+
+app.use((req, res, next) => {
+  res.status(404).send("Sorry can't find that!")
+})
 
 console.log('Let op: Er zijn nog geen routes. Voeg hier dus eerst jouw GET en POST routes toe.')
 
