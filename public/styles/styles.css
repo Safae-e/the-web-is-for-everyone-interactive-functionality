@@ -58,6 +58,14 @@ a {
     font-family: var(--font-arabic-bold);
 }
 
+.menu-button {
+    font-family: sans-serif;
+    padding: 0px;
+    gap: 8px;
+    border: none;
+    background-color: var(--background-color);
+}
+
 /* MARK: Art gallery */
 .card-container {
     list-style-type: none;
@@ -72,30 +80,47 @@ a {
 
 }
 
+li {
+    display: inline-block; /* Zorgt ervoor dat de knop zich binnen de lijst netjes gedraagt */
+    position: relative; /* Dit is nodig voor de absolute positionering van de knop */
+}
+
+li:hover .image {
+    filter: grayscale(100%) brightness(0.35); /* De afbeelding wordt grijs en donkerder bij hover over het hele li-element */
+    transform: scale(1.05);
+}
+
 .image {
     width: 100%;
     height: auto; 
-    border-radius: 7px;
+    /* border-radius: 7px; */
     display: block; /* Verwijdert inline-afstanden */
     padding-top: 1.5em;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
     cursor: pointer;
     &:hover {
+        filter: brightness(0.35);  
         transform: scale(1.05);
     }
 }
 
-.menu-button {
-    font-family: sans-serif;
-    padding: 0px;
-    gap: 8px;
+.like-button {
+    position: absolute;
+    bottom: 10px;  /* Plaatst de knop 10px vanaf de bovenkant */
+    right: 10px;
     border: none;
-    background-color: var(--background-color);
+    background-color: transparent; 
+    opacity: 0; /* Zorgt ervoor dat de knop standaard onzichtbaar is */
+    visibility: hidden; /* Zorgt ervoor dat de knop niet interageert wanneer deze verborgen is */
+    transition: opacity 0.3s ease, visibility 0s ease 0.3s; /* Opacity fade effect */
+    cursor: pointer;
+    font-size: 50px;
 }
 
-.like-button {
-    background-color: rgb(16, 15, 15);
-    border: none;
+li:hover .like-button {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease; /* Zorgt ervoor dat de knop zichtbaar wordt */
 }
 
 .like-button::before {
