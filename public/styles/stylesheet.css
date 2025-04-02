@@ -1,40 +1,45 @@
 @font-face {
     font-family: 'Din Next lt arabic';
     src: url(../fonts/din-next-lt-arabic-light.woff2);
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Din Next lt arabic bold';
+    font-family: 'Din Next lt arabic';
     src: url(../fonts/din-next-lt-arabic-bold.woff2);
+    font-weight: 700;
 }
 
+
 @font-face {
-    font-family: 'Din Next lt pro light ';
+    font-family: 'Din Next lt western';
     src: url(../fonts/din-next-lt-pro-light.woff2);
+    font-weight: 300;
+
 }
 
 @font-face {
-    font-family: 'Din Next lt pro regular ';
+    font-family: 'Din Next lt western';
     src: url(../fonts/din-next-lt-pro-regular.woff2);
+    font-weight: 400;
 }
 
 @font-face {
-    font-family: 'Din Next lt pro bold ';
+    font-family: 'Din Next western';
     src: url(../fonts/din-next-lt-pro-bold.woff2);
-    font-style: normal;
+    font-weight: 700;
 
 }
 
 
 body {
 
-
 /* fonts */
 --font-arabic: "Din Next lt arabic", sans-serif;
---font-arabic-bold: "Din Next lt arabic bold", sans-serif;
---font-pro-light: "Din Next lt pro light", sans-serif;
---font-pro-regular: "Din Next lt pro regular", sans-serif;
---font-pro-bold: "Din Next lt pro bold", sans-serif;
+/* --font-arabic-bold: "Din Next lt arabic bold", sans-serif; */
+/* --font-pro-light: "Din Next lt pro light", sans-serif; */
+/* --font-pro-regular: "Din Next lt pro regular", sans-serif; */
+--font-western: "Din Next lt western", sans-serif;
 
 /* colors */
 --background-color: white;

@@ -3,24 +3,57 @@
 
 <section class="art-section">
 
-<a class="back-button" href="/">BACK </a>
-{% if object.image %}
-    <img class="object-id" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="images of object in qatar " width="300px">        
+    <a class="back-button" href="/">BACK </a>
+    
+    {% if object.image %}
+        <img class="object-id" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="images of object in qatar " width="300px">        
 
-{% else %}
-    <p>No image availible</p>
-{% endif %}
+    {% else %}
+        <p>No image availible</p>
+    {% endif %}
+
 </section>
 
-<h1>{{ object.title }}</h1>
+<div class="object-title">
+    <h1 class="h1-title">{{ object.title }}</h1>
+</div>
 
-{% if object.summary %}
-<h2>Summary:<br>{{ object.summary }}</h2>
+<div class="info-tekst">
+    <img src="/assets/blauwe-blok.svg" alt="blauwe-blok">
+    <p class="tekst-medium">Museum of Islamic Art</p>
+</div>
 
-{% else  %}
-    {% comment %} <p>no summary availible</p> {% endcomment %}
-{% endif %}    
-<p>Object nummer:<br>{{ object.objectNumber }}</p>
-<p>Display date:<br>{{ object.displayDate }}</p>
-<p>Site:<br>{{ object.site }}</p>
-{% render 'partials/foot.liquid' %}
+<div class="info-object">
+    <p class="tekst-bold">Object nummer:</p>  <p class="tekst-medium">{{ object.objectNumber }}</p>
+    <p class="tekst-bold">Display date:</p>   <p class="tekst-medium">{{ object.displayDate }}</p>
+    <p class="tekst-bold">Site:</p>           <p class="tekst-medium">{{ object.site }}</p>
+</div>
+
+<div class="object-summary">
+    
+    {% if object.summary %}
+        <h2 class="tekst-medium">{{ object.summary }}</h2>
+
+    {% else  %}
+        <p class="tekst-medium"> No summary available</p>
+    {% endif %}    
+</div> 
+
+<p class="tekst-bold">Share with a friend</p>
+
+<div class="share-icons">
+    <a href="" class="icon-links"><img src="/assets/paperclip-icoon.png" alt="paperclip-icoon"></a>
+    <a href="" class="icon-links"><img src="/assets/email-icoon.png" alt="email-icoon"></a>
+    <a href="" class="icon-links"><img src="/assets/linkedin-icoon.png" alt="linkedin-icoon"></a>
+    <a href="" class="icon-links"><img src="/assets/facebook-icoon.png" alt="facebook-icoon"></a>
+    <a href="" class="icon-links"><img src="/assets/Union.png" alt="x-icoon"></a>
+</div>
+
+<section class="bottom-page">
+    <h2 class="tekst-medium">You may also like</h2>
+
+</section>
+
+
+
+    {% render 'partials/foot.liquid' %}

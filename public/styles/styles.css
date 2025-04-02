@@ -48,18 +48,25 @@
     }
 }
 
+.ticket-a:hover {
+    color: white;
+}
+
 a {
     text-decoration: none;
     color: var(--font-color);
-    font-family: var(--font-pro-light);
+    font-family: var(--font-western);
+    font-weight: bold;
 }
 
 .AR-nav {
-    font-family: var(--font-arabic-bold);
+    font-family: var(--font-arabic);
+    font-weight: bold;
 }
 
 .menu-button {
-    font-family: sans-serif;
+    font-family: var(--font-western);
+    font-weight: bold;
     padding: 0px;
     gap: 8px;
     border: none;
@@ -156,10 +163,9 @@ li:hover .like-button {
 
 
 .object-id {
-    width: 600px; /* Breedte instellen */
-    height: 45vw;
+    min-width:max-content ;
+    height: 100vw;
     object-fit: cover;  
-   
 }
 
 form {
@@ -173,4 +179,52 @@ input {
     width: 250%;
     border-radius: 4px ;
     padding: .5em;
+}
+
+
+/* Info object */
+.object-title {
+    border-bottom: 2px solid black;
+    padding: 0%;
+}
+
+.info-tekst {
+    border-bottom: 2px solid black;
+    display: flex;
+}
+
+.info-object {
+    border-bottom: 2px solid black;
+
+}
+
+.object-summary {
+    max-width: 70ch;
+    margin: 0;
+}
+
+.tekst-medium {
+    font-family: var(--font-western);
+    font-weight:lighter;
+}
+
+.tekst-bold {
+    font-family: var(--font-western);
+    font-weight: bold;
+}
+
+.h1-title {
+    font-family: var(--font-western);
+    font-weight: normal;
+}
+
+.share-icons {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    border-bottom: 2px solid black;
+}
+
+.icon-links {
+    cursor: pointer;
 }
