@@ -14,6 +14,8 @@
 
 </section>
 
+<section class="main-objectpagina">
+
 <div class="object-title">
     <h1 class="h1-title">{{ object.title }}</h1>
 </div>
@@ -37,7 +39,6 @@
     {% else  %}
         <p class="tekst-medium"> No summary available</p>
     {% endif %}    
-</div> 
 
 <p class="tekst-bold">Share with a friend</p>
 
@@ -48,12 +49,13 @@
     <a href="" class="icon-links"><img src="/assets/facebook-icoon.png" alt="facebook-icoon"></a>
     <a href="" class="icon-links"><img src="/assets/Union.png" alt="x-icoon"></a>
 </div>
+</div> 
+</section>
 
 <section class="bottom-page">
     <h2 class="tekst-medium">You may also like</h2>
 
 </section>
-
 
 
     {% render 'partials/foot.liquid' %}

@@ -1,0 +1,21 @@
+{% render 'partials/head.liquid' %}
+{% render 'partials/header.liquid' %}
+
+
+<h1 class="likes-titel">Liked Artworks</h1>
+
+{% if likedArtworks %}
+    <ul class="card-container"> 
+        {% for object in likedArtworks %}
+            <li class="li-liked">
+                {% comment %} <h2 class="title-liked">{{ object.title }}</h2> {% endcomment %}
+                <img class="image" src="https://fdnd-agency.directus.app/assets/{{ object.image }}" alt="{{ object.title }}">
+            
+            </li>
+        {% endfor %}
+    </ul>
+  {% else %}
+    <p>Je hebt nog geen objecten geliket.</p>
+  {% endif %}
+
+  

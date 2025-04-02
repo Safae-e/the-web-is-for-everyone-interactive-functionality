@@ -4,19 +4,41 @@
 
      <ul class="card-container">  
         {% for artwork in artworks %}
-            <li class="">
+            <li class="li-gallery">
                 <a href="/object/{{ artwork.id }}">
                 <img class="image" src="https://fdnd-agency.directus.app/assets/{{ artwork.image }}" alt="">
                 </a>
-
-                <button class="like-button"></button>
+                <form action="/like/{{ artwork.id }}" method="post">
+                    <input hidden name="artwork_id" type="{{ artwork.id }}">
+                    <button class="like-button"></button>
+                </form>
             </li>
           {% endfor %}
       </ul> 
 
-      <form>
+      <form class="search-form">
         <label>
             <input type="search" placeholder="SEARCH THE COLLECTION">
         </label>
       </form>
+
+
+      {% comment %} <script>
+    document.addEventListener('DOMContentLoaded', () => {
+  // Selecteer alle like-buttons
+  const likeButtons = document.querySelectorAll('.like-button');
+
+  likeButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      // Toggle de 'liked' class om het hartje te vullen/leeg te maken
+      this.classList.toggle('liked');
+      
+      // Optioneel: Stuur een POST request als je de like wilt opslaan in de database
+      // Bijvoorbeeld: gebruik een Fetch API of formulier submit
+      const form = this.closest('form');
+      form.submit(); // Submit het formulier om de like te verwerken
+    });
+  });
+});
+  </script> {% endcomment %}
           {% render 'partials/foot.liquid' %}

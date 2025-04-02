@@ -8,6 +8,10 @@ import { Liquid } from 'liquidjs';
 // Maak een nieuwe Express applicatie aan, waarin we de server configureren
 const app = express()
 
+const postUrl = 'https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects'
+const userId = 4
+
+
 // Maak werken met data uit formulieren iets prettiger
 app.use(express.urlencoded({extended: true}))
 
@@ -44,6 +48,58 @@ app.get('/object/:id/', async function (request, response) {
   response.render('object.liquid', {object: apiResponseJSON.data});
 })
 
+
+app.post('/like/:id', async function(request, response){ 
+  const artworkId = request.params.id
+
+  console.log(artworkId)
+
+  console.log(artworkId, userId)
+
+  await fetch(postUrl, {
+    method: 'POST',
+    body: JSON.stringify({
+      fabrique_users_id: userId,
+      fabrique_art_objects_id: artworkId,
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  })
+  response.redirect(303, '/')
+})
+
+// GET route likes.liquid
+app.get('/likes/', async function (request, response) {
+
+  // Haal de objecten op die geliket zijn 
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_users_fabrique_art_objects?filter=%7B%22fabrique_users_id%22:${userId}%7D`);
+  const apiResponseJSON = await apiResponse.json();
+
+  //  Gebruik Set om de unieke objecten bij te houden, Als het object al is toegevoegd (artworkId zit al in de Set), wordt het niet nogmaals toegevoegd.
+  const uniqueArtworkIds = new Set();
+  // Nu moeten we de objecten ophalen
+  const likedArtworks = [];
+
+  // Itereer(doorloopt elk object in de array één voor één, zodat je de bijbehorende gegevens (fabrique_art_objects_id) kunt ophalen en verwerken.) over de gelikte objecten en haal de details van elk object op
+  for (const like of apiResponseJSON.data) {
+    const artworkId = like.fabrique_art_objects_id;
+
+    // Als dit artwork ID nog niet is toegevoegd aan de Set, haal dan de details op
+    if (!uniqueArtworkIds.has(artworkId)) {
+      uniqueArtworkIds.add(artworkId);
+
+    const artworkDetailsResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image`);
+    const artworkDetails = await artworkDetailsResponse.json();
+    
+    // Voeg het object toe aan de lijst van gelikte objecten
+    // unshift-> zorgt ervoor dat de laatst gelikte objecten vooraan komen te staan
+    likedArtworks.unshift(artworkDetails.data);
+    }
+  }
+
+  response.render('likes.liquid', { likedArtworks: likedArtworks });
+});
 
 
 app.use((req, res, next) => {

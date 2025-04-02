@@ -7,6 +7,7 @@
     align-items: center;
     /* position: fixed; */
     background-color: var(--background-color);
+    border-bottom: 2px solid black;
 }
 
 .qatar-logo {
@@ -31,6 +32,10 @@
         display:inline-flex;
         align-items: center;
     }
+}
+
+.nav-links-like::before {
+    content: "♡";
 }
 
 .ticket-link {
@@ -87,12 +92,12 @@ a {
 
 }
 
-li {
+.li-gallery {
     display: inline-block; /* Zorgt ervoor dat de knop zich binnen de lijst netjes gedraagt */
     position: relative; /* Dit is nodig voor de absolute positionering van de knop */
 }
 
-li:hover .image {
+.li-gallery:hover .image {
     filter: grayscale(100%) brightness(0.35); /* De afbeelding wordt grijs en donkerder bij hover over het hele li-element */
     transform: scale(1.05);
 }
@@ -106,7 +111,6 @@ li:hover .image {
     transition: transform 0.5s ease;
     cursor: pointer;
     &:hover {
-        filter: brightness(0.35);  
         transform: scale(1.05);
     }
 }
@@ -124,7 +128,7 @@ li:hover .image {
     font-size: 50px;
 }
 
-li:hover .like-button {
+.li-gallery:hover .like-button {
     opacity: 1;
     visibility: visible;
     transition: opacity 0.3s ease; /* Zorgt ervoor dat de knop zichtbaar wordt */
@@ -139,6 +143,11 @@ li:hover .like-button {
 .like-button:hover::before {
     color: rgb(214, 75, 57);
 }
+
+.like-button.liked::before {
+    content: "♥"; /* Vol hartje */
+    color: rgb(214, 75, 57); /* Kleur van het gevulde hartje */
+  }
 
 /* MARK: Object pagina */
 
@@ -166,9 +175,17 @@ li:hover .like-button {
     min-width:max-content ;
     height: 100vw;
     object-fit: cover;  
+
+    @media(min-width:600px) {
+    height: 90vw;
+    }
+
+    @media(min-width:960) {
+        height: 45vw;
+    }
 }
 
-form {
+.search-form {
     position: fixed;
     bottom: 1em;
     right: 50%;
@@ -183,24 +200,57 @@ input {
 
 
 /* Info object */
+
+.main-objectpagina {
+    @media(min-width:800px) {
+        display: grid;
+        grid-template-rows: 0.5fr 0.3fr 2fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
 .object-title {
-    border-bottom: 2px solid black;
+    border-bottom:2px solid black ;
     padding: 0%;
+
+    @media(min-width:800px) {
+        grid-row: 1;
+        grid-column: 1;
+        border-right: 2px solid black;
+    }
 }
 
 .info-tekst {
     border-bottom: 2px solid black;
     display: flex;
+    @media(min-width:800px) {
+        grid-row: 2;
+        grid-column: 1;
+        border-right: 2px solid black;
+
+    }
 }
 
 .info-object {
     border-bottom: 2px solid black;
-
+    @media(min-width:800px) {
+        grid-row-start: 2;
+        grid-row-end: 4;
+        grid-column: 2;
+        padding: 1em;
+    }
 }
 
 .object-summary {
-    max-width: 70ch;
+    /* max-width: 70ch; */
     margin: 0;
+    @media(min-width:800px) {
+        grid-row: 3;
+        grid-column: 1;
+        border-right: 2px solid black;
+
+    }
 }
 
 .tekst-medium {
@@ -228,3 +278,15 @@ input {
 .icon-links {
     cursor: pointer;
 }
+
+
+
+/* MARK: likes.liquid */
+
+.likes-titel {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-western);
+    font-weight: bold;
+}
+
