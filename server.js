@@ -40,7 +40,7 @@ app.get('/', async function (request, response) {
 // GET route object.liquid
 app.get('/object/:id/', async function (request, response) {
   const artworkId = request.params.id;
-  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate`
+  const apiResponse = await fetch(`https://fdnd-agency.directus.app/items/fabrique_art_objects/${artworkId}?fields=title,image,summary,objectNumber,site,displayDate,artist,materials,recordType`
   );
   const apiResponseJSON = await apiResponse.json();
   console.log(apiResponse);  

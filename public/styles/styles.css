@@ -172,17 +172,17 @@ a {
 
 
 .object-id {
-    min-width:max-content ;
-    height: 100vw;
+    width:600px ;
+    height: 45vw;
     object-fit: cover;  
 
-    @media(min-width:600px) {
+    /* @media(min-width:600px) {
     height: 90vw;
     }
 
     @media(min-width:960) {
         height: 45vw;
-    }
+    } */
 }
 
 .search-form {
@@ -235,7 +235,7 @@ input {
 .info-object {
     border-bottom: 2px solid black;
     @media(min-width:800px) {
-        grid-row-start: 2;
+        grid-row-start: 1;
         grid-row-end: 4;
         grid-column: 2;
         padding: 1em;
