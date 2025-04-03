@@ -1,9 +1,4 @@
-# Interactive Functionality
-
-Ontwerp en maak voor een opdrachtgever een interactieve toepassing die voor iedereen toegankelijk is
-
-De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/the-web-is-for-everyone-interactive-functionality/blob/main/docs/INSTRUCTIONS.md)
-
+# Qatar museums
 
 ## Inhoudsopgave
 
@@ -18,6 +13,11 @@ De instructie vind je in: [INSTRUCTIONS.md](https://github.com/fdnd-task/the-web
 <!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
 <!-- Voeg een mooie poster visual of video toe 📸 -->
 <!-- Voeg een link toe naar GitHub Pages 🌐-->
+Ik heb voor Qatar Musuems een website gebouwd waar je verschillende kunstobjecten kunt bekijken op de homepagina. Als je op een kunstobject klikt, kom je op een detailpagina waar je meer informatie kunt vinden over het kunstwerk. 
+Daarnaast kun je de kunstobjecten ook liken. De gelikete objecten worden dan opgeslagen in een aparte lijst. Op de likes pagina krijg je dan een overzicht van alle kunstwerken die je hebt geliket en kun je ze makkelijk terugvinden.
+
+Live site
+
 
 ## Gebruik
 <!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
