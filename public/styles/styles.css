@@ -126,6 +126,10 @@ a {
     transition: opacity 0.3s ease, visibility 0s ease 0.3s; /* Opacity fade effect */
     cursor: pointer;
     font-size: 50px;
+
+    @media(max-width:360px) {
+        font-size: 24px;
+    }
 }
 
 .li-gallery:hover .like-button {
